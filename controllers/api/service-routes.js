@@ -49,4 +49,55 @@ router.post('/', (req,res) => {
         res.status(500).json(err)
     })
 })
+
+// UPDATE a streaming service
+router.put('/:id', (req,res) => {
+    Service.update(
+        {
+        name: req.body.name,
+        cost: req.body.cost,
+        cost_basis: req.body.cost_basis,
+        auto_renewal_date: req.body.auto_renewal_date,
+        is_active: req.body.is_active
+        },
+        {
+            where: {
+                id: req.params.id
+            },
+        })
+        .then(dbServiceData => {
+            if(!dbServiceData) {
+                res.status(404).json({message: "No service found with that id"})
+                return
+            }
+    
+            res.json(dbServiceData)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
+// DELETE a streaminng service
+router.delete('/:id', (req,res) => {
+    Service.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbServiceData => {
+        if(!dbServiceData) {
+            res.status(404).json({message: "No service found with that id"})
+            return
+        }
+
+        res.json(dbServiceData)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
+
 module.exports = router
