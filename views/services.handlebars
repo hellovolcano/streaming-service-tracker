@@ -1,0 +1,21 @@
+<section>
+    {{!-- Display info about each streaming service --}}
+    <ol>
+        {{#each services as |service| }}
+        <li>
+            <div>
+                Name: {{service.name}}
+            </div>
+            <div>
+                Cost: {{service.cost}}
+            </div>
+            <div>
+                Renews on: {{service.auto_renewal_date}}
+            </div>
+            <div>
+                Active? {{service.is_active}}
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+</section>

@@ -18,8 +18,8 @@ Service.init(
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
+            // allowing duplicate names since we're not doing a separate subscription model table
         },
         cost: {
             type: DataTypes.DECIMAL,
@@ -29,9 +29,13 @@ Service.init(
             type: DataTypes.ENUM(monthly, yearly),
             allowNull: false
         },
-        renewal_date: {
-                type: DataTypes.DATE,
+        auto_renewal_date: {
+                type: DataTypes.DATEONLY,
                 allowNull: false 
+        },
+        is_active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     },
     {
