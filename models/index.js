@@ -1,3 +1,8 @@
+const Service = require('./Service');
 const User = require('./User');
 
-module.exports = { User };
+// Service has one user
+
+// Service has many shows
+
+module.exports = { Service, User }
