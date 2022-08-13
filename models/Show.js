@@ -3,7 +3,7 @@ const sequelize=require('../config/connection');
 
 class Show extends Model{}
 
-Model.init(
+Show.init(
     {
         id:{
             type:DataTypes.INTEGER,
@@ -16,14 +16,14 @@ Model.init(
             allowNull:false,
         },
         premiereDate:{
-            type:DataTypes.DATE,
+            type:DataTypes.DATEONLY,
             allowNull:false,
         },
         service_id:{
             type:DataTypes.INTEGER,
             allowNull:false,
             references:{
-                model: 'streaming',
+                model: 'service',
                 key:'id',
             },
         },
