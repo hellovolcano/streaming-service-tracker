@@ -5,19 +5,22 @@
     }
 </style>
 <main class="form-signin w-100 m-auto">
-    <form>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-        <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+    <form action="" method="POST" class="form-example">
+        <div class="form-example">
+            <label for="userName">Email: </label>
+            <input type="email" name="userName" id="email" required>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+        <div class="form-example">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required>
         </div>
-
-        <br/>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        {{#if error}}
+        <span style="color:red">{{error}}</span>
+        {{/if}}
+        <div class="form-example">
+            <input type="submit" value="Login">
+        </div>
     </form>
+
 </main>

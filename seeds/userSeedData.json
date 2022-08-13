@@ -2,37 +2,37 @@
     {
         "firstName": "Chandler",
         "lastName": "Bing",
-        "email": "chandler.bing@friends.com",
-        "password": "password1234"
+        "email": "chandler@friends.com",
+        "password": "friendly1"
     },
     {
         "firstName": "Monica",
         "lastName": "Geller",
-        "email": "monica.geller@friends.com",
-        "password": "abcde!"
+        "email": "monica@friends.com",
+        "password": "friendly1"
     },
     {
         "firstName": "Rachel",
         "lastName": "Green",
-        "email": "rachel.green@friends.com",
-        "password": "jenanniston"
+        "email": "rachel@friends.com",
+        "password": "friendly1"
     },
     {
         "firstName": "Joey",
         "lastName": "Tribbiani",
-        "email": "joe.trib@friends.com",
-        "password": "topgear1"
+        "email": "joey@friends.com",
+        "password": "friendly1"
     },
     {
         "firstName": "Phoebe",
         "lastName": "Buffay",
-        "email": "phoebe.buffay@friends.com",
-        "password": "freebuffet"
+        "email": "phoebe@friends.com",
+        "password": "friendly1"
     },
     {
         "firstName": "Ross",
         "lastName": "Geller",
-        "email": "ross.geller@friends.com",
-        "password": "doctorG"
+        "email": "ross@friends.com",
+        "password": "friendly1"
     }
 ]

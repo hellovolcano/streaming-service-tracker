@@ -47,13 +47,13 @@ User.init(
           return err;
         }
       },
-      beforeUpdate: async updatedReader => {
+      beforeUpdate: async updatedUser => {
         try {
-          updatedReader.password = await bcrypt.hash(
-            updatedReader.password,
+          updatedUser.password = await bcrypt.hash(
+            updatedUser.password,
             10
           );
-          return updatedReader;
+          return updatedUser;
         } catch (err) {
           console.log(err);
           return err;
