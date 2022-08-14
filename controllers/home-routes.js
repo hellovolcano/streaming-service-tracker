@@ -5,6 +5,7 @@ const { Service, User } = require('../models');
 // Render home page
 router.get('/', (req, res) => {
     res.render('home', {
+        layout: 'landing-page.handlebars',
         loggedIn: req.session.loggedIn,
         userName: req.session.userName
     });

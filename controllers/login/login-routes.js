@@ -3,7 +3,7 @@ const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
-    res.render('login');
+    res.render('login', {layout: 'landing-page.handlebars'});
 });
 
 router.post('/', async (req, res) => {
