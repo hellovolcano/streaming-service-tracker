@@ -12,12 +12,13 @@
         <input type="text" id="service-cost" value="{{service.cost}}" />
     </div>
     <div>
-        <label for="service-recurrence">How often does this subscription get renewed?</label>
-        <input list="recurrence" id="service-recurrence" value="{{service.cost_basis}}" />
-        <datalist id="recurrence">
-            <option value="monthly">
-            <option value="yearly">
-        </datalist>
+        {{!-- TODO: create a helper function to added 'selected' to the option 
+        based on what we passed in --}}
+        <p>How often does this subscription get renewed?</p>
+        <select id="service-recurrence">
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
     </div>
     <div>
         <label for="service-renewal-date">Auto Renewal Date</label>

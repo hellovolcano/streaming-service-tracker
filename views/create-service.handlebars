@@ -8,12 +8,12 @@
         <input type="text" id="service-cost" />
     </div>
     <div>
-        <label for="service-recurrence">How often does this subscription get renewed?</label>
-        <input list="recurrence" id="service-recurrence" />
-        <datalist id="recurrence">
-            <option value="monthly">
-            <option value="yearly">
-        </datalist>
+        <p>How often does this subscription get renewed?</p>
+        <select id="service-recurrence">
+            <option value="none" selected disabled hidden>Select an option</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
     </div>
     <div>
         <label for="service-renewal-date">Auto Renewal Date</label>
