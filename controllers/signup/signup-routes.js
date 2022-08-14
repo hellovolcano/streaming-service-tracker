@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 router.get('/', (req, res) => {
-    res.render('signup');
+    res.render('signup', {layout: 'landing-page.handlebars'});
 });
 router.post('/', async (req, res) => {
 

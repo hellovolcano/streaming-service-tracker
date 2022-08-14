@@ -1,0 +1,52 @@
+/* General styles */
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Albert Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,900;1,100&display=swap');
+
+/* LANDING PAGE STYLES */
+
+.landing-page-left {
+    background-image: url("/images/loewe-unsplash-med.jpg");
+    background-size: cover;
+    background-color: seagreen;
+    height: 100%;
+}
+
+.landing-page-intro {
+    padding-top: 10%;
+    background-color: whitesmoke;
+    height: 100%;
+}
+
+.landing-page-intro p {
+    padding: 10px;
+}
+
+.content {
+    margin-left: 20px;
+}
+
+
+/* Modifications to Simple Grid styles */
+.grid {
+    /* Force grid to take up full wdith and height of browser */
+    height: 100%;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+    .landing-page-left {
+        display: none;
+    }
+}
