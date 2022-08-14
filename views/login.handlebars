@@ -1,0 +1,19 @@
+<main class="">
+    <form action="" method="POST">
+        <div>
+            <label for="userName">Email: </label>
+            <input type="email" name="userName" id="email" required>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        {{#if error}}
+        <span style="color:red">{{error}}</span>
+        {{/if}}
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+
+</main>

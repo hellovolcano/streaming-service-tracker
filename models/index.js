@@ -1,5 +1,6 @@
 const Service = require('./Service')
 const Show = require('./Show')
+const User = require('./User');
 
 // Service has one user
 
@@ -8,4 +9,4 @@ Show.hasOne(Service,{
     foreignKey:'service_id'
 })
 
-module.exports = { Service,Show }
+module.exports = { Service, Show,User }
