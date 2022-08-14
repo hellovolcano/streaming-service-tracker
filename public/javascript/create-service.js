@@ -1,3 +1,9 @@
+const getActiveStatus = () => {
+    const radioBtns = document.getElementsByName('is-service-active')
+
+
+}
+
 const newServiceHandler = async (event) => {
     event.preventDefault()
 
@@ -6,17 +12,13 @@ const newServiceHandler = async (event) => {
     const cost = document.querySelector("#service-cost").value
     const recurrence = document.querySelector("#service-recurrence").value
     const renewalDate = document.querySelector("#service-renewal-date").value
-    let isActive = document.querySelector("#service-active").value
+    // If the active checkbox is checked, we'll set this variable to true; if it's not, it will be false
+    // if the user selects neither, it will default to false
+    const isActive = document.getElementById("active").checked
 
-    // format isActive to bool
-    if (isActive == 'yes') {
-        isActive = true
-    } else {
-        isActive = false
-    }
 
     // make a post request to create the service
-    if (name && cost && recurrence && renewalDate && isActive) {
+    if (name && cost && recurrence && renewalDate) {
         const response = await fetch('/api/services', {
             method: 'POST',
             body: JSON.stringify({

@@ -20,11 +20,12 @@
         <input type="text" id="service-renewal-date" />
     </div>
     <div>
-        <label for="service-active">Is this service active?</label>
-        <input list="active" id="service-active" />
-        <datalist id="active">
-            <option value="yes">
-            <option value="no">
+        <p>Is this service active?</p>
+        <label for="active">Yes</label>
+        <input type="radio" id="active" name="is-service-active" value="true" />
+        <label for="inactive">No</label>
+        <input type="radio" id="inactive" name="is-service-active" value="false" />
+
     </div>
     <div>
         <button type="submit">submit</button>
