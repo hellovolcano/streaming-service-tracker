@@ -1,3 +1,55 @@
 <div>
-    <p>This is the dashboard</p>
+    <div class="col-7-12 services">
+        <div class="services-header">
+            <h3>
+                Streaming Services
+            </h3>
+            <span class="add-service">
+                <a href="/dashboard/create-service">
+                    <i class="bi bi-plus-circle-fill"></i> add a new service
+
+                </a>
+            </span>
+        </div>
+        
+
+        <div>
+            <ul>
+                {{#each services as |service|}}
+                <li>
+                    <div class="single-service">
+                        <div>
+                            <div>
+                                <h4>
+                                    {{service.name}}
+                                </h4>
+                                
+                            </div>
+                            <div class="service-info">
+                                <div>
+                                Cost: {{service.cost}}
+                            </div>
+                            <div>
+                                Renews on: {{service.auto_renewal_date}}
+                            </div>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <a href="/dashboard/edit-service/{{service.id}}">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-5-12">
+        <h3>Summary</h3>
+        <div>
+            Summary of monthly costs and # of active subscriptions will go here
+        </div>
+    </div>    
 </div>
