@@ -4,9 +4,13 @@
                 We're not great marketers, but we are here to help you save money, but providing an easy-to-use interface to track your current subscriptions, 
                 remind you of when they're about to renew so you can cancel, and even track upcoming shows that might warrant a new subcription.</p>
     <p>Sound like something you might need?</p>
+    {{#if loggedIn}}
+        You are logged as: {{userName}} | <a href="/logout">Log Out</a>
+    {{else}}
     <p>
             <a href="/signup">Get Started Now</a>
     </p>
     <p>
         Already have an account? <a href="/login">Log in here</a> .
     </p> 
+    {{/if}}
