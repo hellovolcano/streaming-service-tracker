@@ -3,12 +3,14 @@ const sequelize = require('../config/connection');
 const { Service, User, User_Subscription } = require('../models');
 
 // render the user dashboard
-// TODO (BLOCKED): Filter the list of returned services to the specific user after we implement the junction table
 router.get('/', (req,res) => {
+ // TODO (BUG FIX): When redirected from the /login screen, the application intermittently redirects before we've saved the session info
+
+    // search for all of the user's subscriptions to display on their dashboard
     User_Subscription.findAll({
         where: {
             // use the ID from the session after testing (req.session.user_id)
-            user_id: 1
+            user_id: req.session.user_id
         },
         attributes: ['id','user_id','service_id','is_active','auto_renewal_date'],
         include: {
@@ -18,19 +20,20 @@ router.get('/', (req,res) => {
     })
         .then(dbSubData => {
             const services = dbSubData.map(service => service.get({ plain: true }))
-        res.render('dashboard', {services})
+
+        res.render('dashboard', {services, loggedIn: true})
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })
 })
-// create a new service
+// render create a new service view
 router.get('/create-service', (req,res) => {
     res.render('create-service')
 })
 
-// edit a service
+// render edit a service view
 router.get('/edit-service/:id', (req,res) => {
     Service.findOne({
         where: {
