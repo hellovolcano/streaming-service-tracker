@@ -1,13 +1,23 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Service, User } = require('../models');
+const { Service, User, User_Subscription } = require('../models');
 
 // render the user dashboard
 // TODO (BLOCKED): Filter the list of returned services to the specific user after we implement the junction table
 router.get('/', (req,res) => {
-    Service.findAll()
-        .then(serviceData => {
-            const services = serviceData.map(service => service.get({ plain: true }))
+    User_Subscription.findAll({
+        where: {
+            // use the ID from the session after testing (req.session.user_id)
+            user_id: 1
+        },
+        attributes: ['id','user_id','service_id','is_active','auto_renewal_date'],
+        include: {
+            model: Service,
+            attributes: ['name','cost','cost_basis']
+        }
+    })
+        .then(dbSubData => {
+            const services = dbSubData.map(service => service.get({ plain: true }))
         res.render('dashboard', {services})
     })
     .catch(err => {
@@ -26,7 +36,7 @@ router.get('/edit-service/:id', (req,res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id','name','cost','cost_basis','auto_renewal_date','is_active']
+        attributes: ['id','name','cost','cost_basis']
     })
     .then(dbServiceData => {
         if(!dbServiceData) {

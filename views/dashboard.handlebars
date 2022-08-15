@@ -15,25 +15,24 @@
 
         <div>
             <ul>
-                {{#each services as |service|}}
+                {{#each services as |subscription|}}
                 <li>
                     <div class="single-service">
                         <div>
                             <div>
                                 <h4>
-                                    {{service.name}}
+                                    {{subscription.service.name}}
                                 </h4>
                                 
                             </div>
                             <div class="service-info">
                                 <div>
-                                Cost: {{service.cost}}
+                                Cost: {{subscription.service.cost}}
                             </div>
                             <div>
-                                Renews on: {{service.auto_renewal_date}}
+                                Renews on: {{subscription.auto_renewal_date}}
                             </div>
                             </div>
-                            
                         </div>
                         <div>
                             <a href="/dashboard/edit-service/{{service.id}}">
@@ -53,3 +52,5 @@
         </div>
     </div>    
 </div>
+
+<button id="logout">LOGOUT</button>

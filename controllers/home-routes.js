@@ -11,6 +11,16 @@ router.get('/', (req, res) => {
     });
 });
 
+// LOGIN route
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard')
+        return
+    }
+
+    res.render('login', {layout: 'landing-page.handlebars'})
+})
+
 
 // GET all services
 router.get('/services', (req, res) => {

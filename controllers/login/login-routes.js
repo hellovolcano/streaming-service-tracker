@@ -2,39 +2,47 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
-router.get('/', (req, res) => {
-    res.render('login', {layout: 'landing-page.handlebars'});
-});
+// router.get('/', (req, res) => {
+//     res.render('login', {layout: 'landing-page.handlebars'});
+// });
 
-router.post('/', async (req, res) => {
 
-    // Capture the input fields
-    const userName = req.body.userName;
-    const password = req.body.password;
-    // Ensure the input fields exists and are not empty
-    if (userName && password) {
-        let user = await User.findOne({
-            where: {
-                email: userName
-            }
-        });
-        if (user && bcrypt.compareSync(password, user.password)) {
-            // Authenticate the user
-            req.session.loggedIn = true;
-            req.session.userName = user.firstName + " " + user.lastName;
-            // Redirect to home page
-            res.redirect('/dashboard');
-        } else {
-            res.render('login', {
-                error: 'Incorrect userName and/or Password!'
-            });
-        }
-    } else {
-        res.render('login', {
-            error: 'Please enter userName and Password!'
-        });
-    }
-});
+
+
+// router.post('/', async (req, res) => {
+
+//     // Capture the input fields
+//     const userName = req.body.userName;
+//     const password = req.body.password;
+//     // Ensure the input fields exists and are not empty
+//     if (userName && password) {
+//         let user = await User.findOne({
+//             where: {
+//                 email: userName
+//             }
+//         });
+//         if (user && bcrypt.compareSync(password, user.password)) {
+//             // Authenticate the user
+
+//             //declare the session variables
+//             req.session.save(() => {
+//                 req.session.loggedIn = true;
+//                 req.session.userName = user.firstName + " " + user.lastName;
+//                 req.session.user_id = user.id
+//             })
+//             // Redirect to home page
+//             res.redirect('/dashboard');
+//         } else {
+//             res.render('login', {
+//                 error: 'Incorrect userName and/or Password!'
+//             });
+//         }
+//     } else {
+//         res.render('login', {
+//             error: 'Please enter userName and Password!'
+//         });
+//     }
+// });
 
 router.delete('/', (req, res) => {
     if (req.session) {

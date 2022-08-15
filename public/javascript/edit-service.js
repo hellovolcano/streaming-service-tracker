@@ -9,20 +9,16 @@ const editServiceHandler = async(event) => {
     const name = document.querySelector("#service-name").value
     const cost = document.querySelector("#service-cost").value
     const recurrence = document.querySelector("#service-recurrence").value
-    const renewalDate = document.querySelector("#service-renewal-date").value
-    const isActive = document.getElementById("active").checked
 
 
     // make a post request to create the service
-    if (name && cost && recurrence && renewalDate) {
+    if (name && cost && recurrence) {
         const response = await fetch(`/api/services/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: name,
                 cost: cost,
-                cost_basis: recurrence,
-                auto_renewal_date: renewalDate,
-                is_active: isActive
+                cost_basis: recurrence
             }),
             headers: {
                 'Content-Type':'application/json'
