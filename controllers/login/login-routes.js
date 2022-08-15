@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
             req.session.loggedIn = true;
             req.session.userName = user.firstName + " " + user.lastName;
             // Redirect to home page
-            res.redirect('/');
+            res.redirect('/dashboard');
         } else {
             res.render('login', {
                 error: 'Incorrect userName and/or Password!'
