@@ -13,7 +13,6 @@ const toggleRenewalDate = (event) => {
     }
 }
 
-
 async function addSubscriptionFormHandler(event) {
     event.preventDefault()
 
@@ -43,30 +42,29 @@ async function addSubscriptionFormHandler(event) {
         is_active: is_active
     }
 
+    // conditionally add the renewal date if it's an active subscription
     if (is_active) {
         fetchObj.auto_renewal_date = auto_renewal_date
-    }
+    } 
 
+    
     console.log(fetchObj)
-    // make a fetch request with everything but the user id, since we'll get that from the session
-    const response = await fetch ('/api/subscriptions', {
-        method: 'POST',
-        body: JSON.stringify({
-            service_id: parseInt(service_id),
-            is_active: is_active,
-            auto_renewal_date: auto_renewal_date
-        }),
-        headers: {
-            'Content-Type':'application-json'
-        }
-    })
 
-    if (response.ok) {
-        alert('Subscription added!')
-        document.location.replace('/dashboard')
-        return
-    } else {
-        alert(response.statusText)
+    if (service_id) {
+        const response = await fetch('/api/subscriptions', {
+            method: 'POST',
+            body: JSON.stringify(fetchObj),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+
+        if(response.ok) {
+            document.location.replace('/dashboard')
+        } else {
+            alert(response.statusText)
+        }
+        
     }
 }
 

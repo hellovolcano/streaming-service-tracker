@@ -21,21 +21,22 @@
                         <div>
                             <div>
                                 <h4>
-                                    {{subscription.name}}
+                                    {{subscription.service.name}}
                                 </h4>
                                 
                             </div>
                             <div class="service-info">
                                 <div>
-                                Cost: {{service.cost}}
+                                Cost: {{subscription.service.cost}}
                             </div>
                             <div>
                                 Renews on: {{subscription.auto_renewal_date}}
                             </div>
                             </div>
+                            
                         </div>
                         <div>
-                            <a href="/dashboard/edit-service/{{subscription.service_id}}">
+                            <a href="/dashboard/add-subscription/?{{subscription.id}}">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
                         </div>
@@ -52,6 +53,3 @@
         </div>
     </div>    
 </div>
-
-{{!--  this should be part of the navigation defined in main.handlebars. adding it here for testing purposes --}}
-<button id="logout">LOGOUT</button>
