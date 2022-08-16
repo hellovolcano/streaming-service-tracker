@@ -1,4 +1,5 @@
-<form class="add-subscription">
+
+<form class="edit-subscription">
     {{!-- TODO: add in name of the subscription dynamically. Maybe as another query string? --}}
     <div>
         <label for="is_active">Is the service currently active?</label>
@@ -7,9 +8,9 @@
             <option value="false" selected>No</option>
         </select>
     </div>
-    <div id="toggle_ard_visibility" class="toggle-visibility">
+    <div>
         <label for="auto_renewal_date">When will this service renew?</label>
-        <input type="string" id="auto_renewal_date" placeholder="YYYY-MM-DD" />
+        <input type="string" id="auto_renewal_date" value="{{subscription.auto_renewal_date}}" />
     </div>
     <div>
         <button type="submit">add subscription</button>
@@ -18,4 +19,4 @@
 
 
 
-<script src="/javascript/add-subscription.js"></script>
+<script src="/javascript/edit-subscription.js"></script>

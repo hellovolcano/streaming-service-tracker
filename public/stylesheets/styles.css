@@ -49,6 +49,11 @@ body {
     margin-bottom: 7px;
 }
 
+.service-title {
+    font-size:120%;
+    font-weight: 300;
+}
+
 .service-info {
     display: flex;
     justify-content: space-around;
@@ -63,11 +68,39 @@ body {
     margin-right: 7px;
 }
 
+
 /* SERVICES styles */
 
 /* don't delete this one */
 .toggle-visibility {
     display: none;
+}
+
+/* Nav styles that can be deleted */
+.no-styles {
+    background: none;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 100%;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    padding: 15px;
+}
+
+nav {
+    background-color: seagreen;
+    padding: 20px;
 }
 
 /* LANDING PAGE STYLES */

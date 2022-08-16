@@ -22,7 +22,7 @@ router.get('/', (req,res) => {
             const services = dbSubData.map(service => service.get({ plain: true }))
             console.log(services)
 
-        res.render('dashboard', {services, loggedIn: true})
+        res.render('dashboard', {services, loggedIn: req.session.loggedIn })
     })
     .catch(err => {
         console.log(err);
@@ -31,12 +31,29 @@ router.get('/', (req,res) => {
 })
 
 router.get('/add-subscription', (req,res) => {
-    res.render('add-subscription')
+    res.render('add-subscription', { loggedIn: req.session.loggedIn })
+})
+
+router.get('/edit-subscription/:id', (req,res) => {
+    User_Subscription.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbSubData => {
+        if (!dbSubData) {
+            res.status(404).json({ message: 'not found'})
+            return
+        }
+        
+        const subscription = dbSubData.get({ plain: true})
+        res.render('edit-subscription', { subscription,  loggedIn: req.session.loggedIn })
+    })
 })
 
 // render create a new service view
 router.get('/create-service', (req,res) => {
-    res.render('create-service')
+    res.render('create-service', {loggedIn: req.session.loggedIn})
 })
 
 // render edit a service view
@@ -55,7 +72,7 @@ router.get('/edit-service/:id', (req,res) => {
 
         // serialize the data before passing to template
         const service = dbServiceData.get({ plain: true })
-        res.render('edit-service', { service })
+        res.render('edit-service', { service ,  loggedIn: req.session.loggedIn })
     })
 })
 

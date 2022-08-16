@@ -27,12 +27,16 @@ router.get('/services', (req, res) => {
     Service.findAll()
         .then(serviceData => {
             const services = serviceData.map(service => service.get({ plain: true }))
-            res.render('services', { services });
+            res.render('services', { services, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
+
+router.get('/faq', (req, res) => {
+    res.render('faq', { loggedIn: req.session.loggedIn})
+})
 
 module.exports = router;
