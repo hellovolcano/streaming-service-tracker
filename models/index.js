@@ -1,6 +1,6 @@
 const Service = require('./Service')
 const Show = require('./Show')
-const User = require('./User');
+const User = require('./user');
 const User_Subscription = require('./User_Subscription')
 
 // Service has many shows
