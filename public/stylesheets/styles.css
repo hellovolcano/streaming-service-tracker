@@ -4,6 +4,7 @@
     margin: 0;
 }
 
+/* Required for the landing page layout */
 html, body {
     height: 100%;
 }
@@ -65,7 +66,7 @@ body {
 
 
 /* LANDING PAGE STYLES */
-
+/* Don't change */
 .landing-page-left {
     background-image: url("/images/loewe-unsplash-med.jpg");
     background-size: cover;
@@ -95,6 +96,7 @@ body {
     max-width: 100%;
 }
 
+/* don't chage */
 @media screen and (max-width: 850px) {
     .landing-page-left {
         display: none;

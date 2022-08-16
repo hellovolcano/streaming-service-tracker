@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id','name','cost','cost_basis','auto_renewal_date','is_active','created_at']
+        attributes: ['id','name','cost','cost_basis','created_at']
     })
     .then(dbServiceData => {
         if(!dbServiceData) {
@@ -39,9 +39,7 @@ router.post('/', (req,res) => {
     Service.create({
         name: req.body.name,
         cost: req.body.cost,
-        cost_basis: req.body.cost_basis,
-        auto_renewal_date: req.body.auto_renewal_date,
-        is_active: req.body.is_active
+        cost_basis: req.body.cost_basis
     })
     .then(dbServiceData => res.json(dbServiceData))
     .catch(err => {
@@ -56,9 +54,7 @@ router.put('/:id', (req,res) => {
         {
         name: req.body.name,
         cost: req.body.cost,
-        cost_basis: req.body.cost_basis,
-        auto_renewal_date: req.body.auto_renewal_date,
-        is_active: req.body.is_active
+        cost_basis: req.body.cost_basis
         },
         {
             where: {
@@ -79,7 +75,7 @@ router.put('/:id', (req,res) => {
         })
 })
 
-// DELETE a streaminng service
+// DELETE a streaming service
 router.delete('/:id', (req,res) => {
     Service.destroy({
         where: {
