@@ -28,14 +28,6 @@ Service.init(
         cost_basis: {
             type: DataTypes.ENUM(monthly, yearly),
             allowNull: false
-        },
-        auto_renewal_date: {
-                type: DataTypes.DATEONLY,
-                allowNull: false 
-        },
-        is_active: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
         }
     },
     {

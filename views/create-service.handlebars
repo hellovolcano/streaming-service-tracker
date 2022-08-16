@@ -1,0 +1,39 @@
+<form class="new-service">
+    <div>
+        <label for="service-name">Service Name</label>
+        <input type="text" id="service-name" />
+    </div>
+    <div>
+        <label for="service-cost">Cost</label>
+        <input type="text" id="service-cost" />
+    </div>
+    <div>
+        <p>How often does this subscription get renewed?</p>
+        <select id="service-recurrence">
+            <option value="none" selected disabled hidden>Select an option</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+    </div>
+
+    {{!-- 
+    Commenting this out for now since I moved this info the subscription table
+
+    <div>
+        <label for="service-renewal-date">Auto Renewal Date</label>
+        <input type="text" id="service-renewal-date" />
+    </div>
+    <div>
+        <p>Is this service active?</p>
+        <label for="active">Yes</label>
+        <input type="radio" id="active" name="is-service-active" value="true" />
+        <label for="inactive">No</label>
+        <input type="radio" id="inactive" name="is-service-active" value="false" />
+
+    </div> --}}
+    <div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+
+<script src="/javascript/create-service.js"></script>

@@ -15,7 +15,7 @@ const sess = {
     secret: process.env.SESSION_SECRET,
     cookie: {},
     resave: false,
-    saveUnitialized: false,
+    saveUnitialized: true,
     store: new SequelizeStore({
         db: sequelize
     })

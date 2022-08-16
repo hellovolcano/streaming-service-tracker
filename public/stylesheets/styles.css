@@ -4,6 +4,7 @@
     margin: 0;
 }
 
+/* Required for the landing page layout */
 html, body {
     height: 100%;
 }
@@ -12,10 +13,60 @@ body {
     font-family: 'Albert Sans', sans-serif;
 }
 
+/* FONTS */
+/* Global font */
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,900;1,100&display=swap');
 
-/* LANDING PAGE STYLES */
+/* DASHBOARD STYLES */
+/* TODO: update once we have a more defined global style */
+.single-service {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightseagreen;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+}
 
+.services {
+    margin-top: 25px;
+}
+
+.services ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.services-header {
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.services h4 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.service-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.service-info div{
+    margin-right: 10px;
+}
+
+.services i {
+    margin-top: 7px;
+    margin-right: 7px;
+}
+
+
+
+/* LANDING PAGE STYLES */
+/* Don't change */
 .landing-page-left {
     background-image: url("/images/loewe-unsplash-med.jpg");
     background-size: cover;
@@ -45,6 +96,7 @@ body {
     max-width: 100%;
 }
 
+/* don't chage */
 @media screen and (max-width: 850px) {
     .landing-page-left {
         display: none;
