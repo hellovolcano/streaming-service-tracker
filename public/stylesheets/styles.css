@@ -63,7 +63,12 @@ body {
     margin-right: 7px;
 }
 
+/* SERVICES styles */
 
+/* don't delete this one */
+.toggle-visibility {
+    display: none;
+}
 
 /* LANDING PAGE STYLES */
 /* Don't change */

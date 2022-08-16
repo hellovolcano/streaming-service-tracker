@@ -20,6 +20,7 @@ router.get('/', (req,res) => {
     })
         .then(dbSubData => {
             const services = dbSubData.map(service => service.get({ plain: true }))
+            console.log(services)
 
         res.render('dashboard', {services, loggedIn: true})
     })
@@ -28,6 +29,11 @@ router.get('/', (req,res) => {
         res.status(500).json(err);
     })
 })
+
+router.get('/add-subscription', (req,res) => {
+    res.render('add-subscription')
+})
+
 // render create a new service view
 router.get('/create-service', (req,res) => {
     res.render('create-service')

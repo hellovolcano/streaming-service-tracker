@@ -22,9 +22,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     User_Subscription.create({
 
-        user_id: req.body.user_id,  // change to get info from the session after testing
+        user_id: 1,  // change to get info from the session after testing
         service_id: req.body.service_id,
-        is_active: req.body.is_active,
+        is_active: true, // hardcoding as a test
         auto_renewal_date: req.body.auto_renewal_date
     })
     .then(dbSubData => res.json(dbSubData))

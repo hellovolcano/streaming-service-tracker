@@ -31,7 +31,7 @@ User_Subscription.init(
         },
         auto_renewal_date: {
             type: DataTypes.DATEONLY,
-            allowNull: false 
+            allowNull: true 
         }
     },
     {
