@@ -18,12 +18,17 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,900;1,100&display=swap');
 
 /* DASHBOARD STYLES */
+a{
+    text-decoration: none;
+}
 
 .main-layout{
     background-color: black;
     color: white;
     padding: 25px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -32,10 +37,10 @@ body {
     justify-content: flex-start;
 }
 
-.main-layout h2{
+/* .main-layout h2{
     display: flex;
     justify-content: flex-end;
-}
+} */
 
 
 .services-header{
@@ -48,6 +53,8 @@ body {
     outline: solid black;
     padding-bottom: 25px;
     padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 40px;
 }
 
 .right-div{
@@ -55,22 +62,22 @@ body {
     padding-bottom: 25px;
     padding-top: 5px;
     margin-top: 25px;
+    padding-left: 10px;
 }
 
-/* just here until we figure out where we want it */
-#logout{
-    display: flex;
-}
+
 
 /* TODO: update once we have a more defined global style */
 .single-service {
     display: flex;
     justify-content: space-between;
-    background-color: lightseagreen;
+    background-color: white;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 0px;
     padding: 5px;
     margin-top: 5px;
+    margin-right: 40px;
+    margin-bottom: 15px;
 }
 
 .services {
@@ -80,6 +87,7 @@ body {
 .services ul {
     list-style-type: none;
     margin: 0;
+    padding-left: 0px;
 }
 
 .services-header {
@@ -112,7 +120,9 @@ body {
     margin-right: 7px;
 }
 
-
+.right{
+    margin: 10px 0px 0px 40px;
+}
 /* SERVICES styles */
 
 /* don't delete this one */
@@ -120,16 +130,80 @@ body {
     display: none;
 }
 
+/* FAQ */
+.FAQ{
+    margin: 10px 0px 10px 0px;
+}
+
+/* EDIT services */
+input [type=text], select{
+    width: 100px;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+#service-name{
+    width: 200px;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#service-cost{
+    width: 200px;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* changed this to just be for all pages in the home pages, just to stay consistent with how much margin we have */
+.edit-service{
+    
+    margin:5px 25px;
+
+}
+
+#delete-service {
+    background-color: #ff6961;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+#create-service {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
 /* Nav styles that can be deleted */
 .no-styles {
     background: none;
-    color: black;
+    color: white;
     border: none;
     cursor: pointer;
     padding: 0;
     font-size: 100%;
     margin-left: 10px;
-    text-decoration: underline;
+    text-decoration: none;
+    display:inline;
 }
 
 nav ul {
@@ -143,10 +217,14 @@ nav ul li {
 }
 
 nav {
-    background-color: seagreen;
+
     padding: 20px;
 }
 
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
 /* LANDING PAGE STYLES */
 /* Don't change */
 .landing-page-left {

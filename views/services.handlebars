@@ -1,7 +1,5 @@
-<section class="right">
-    <a href="/dashboard/create-service">+ add a streaming service</a>
-</section>
-<section>
+
+<section class="edit-service">
     <h2>Streaming Services</h2>
     <p>You can browse the streaming services below and pick one to add to your subscription list, or add one if it's missing!</p>
     {{!-- Display info about each streaming service --}}
@@ -16,5 +14,10 @@
                 <a href="/dashboard/edit-service/{{service.id}}">edit</a>
             </div>
         {{/each}}
+
+        
     </ol>
+    <section class="right">
+        <a href="/dashboard/create-service">+ add a streaming service</a>
+    </section>
 </section>
