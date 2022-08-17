@@ -13,6 +13,9 @@ router.get('/', withAuth, (req,res) => {
             // use the ID from the session after testing (req.session.user_id)
             user_id: req.session.user_id
         },
+        order: [
+            ['auto_renewal_date', 'DESC']
+        ],
         attributes: ['id','user_id','service_id','is_active','auto_renewal_date'],
         include: {
             model: Service,
