@@ -48,12 +48,13 @@ router.put('/:id', (req, res) => {
         }
     })
     .then(dbSubData => {
+        console.log(dbSubData)
         if (!dbSubData) {
             res.status(404).json({message: 'Not found'})
             return
         }
-
         res.json(dbSubData)
+        
     })
     .catch(err => {
         console.log(err)

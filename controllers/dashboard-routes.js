@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Service, User, User_Subscription } = require('../models');
+const withAuth = require('../utils/auth')
 
 // render the user dashboard
-router.get('/', (req,res) => {
+router.get('/', withAuth, (req,res) => {
  // TODO (BUG FIX): When redirected from the /login screen, the application intermittently redirects before we've saved the session info
 
     // search for all of the user's subscriptions to display on their dashboard
@@ -12,6 +13,9 @@ router.get('/', (req,res) => {
             // use the ID from the session after testing (req.session.user_id)
             user_id: req.session.user_id
         },
+        order: [
+            ['auto_renewal_date', 'DESC']
+        ],
         attributes: ['id','user_id','service_id','is_active','auto_renewal_date'],
         include: {
             model: Service,
@@ -20,7 +24,6 @@ router.get('/', (req,res) => {
     })
         .then(dbSubData => {
             const services = dbSubData.map(service => service.get({ plain: true }))
-            console.log(services)
 
         res.render('dashboard', {services, loggedIn: req.session.loggedIn })
     })
@@ -30,11 +33,11 @@ router.get('/', (req,res) => {
     })
 })
 
-router.get('/add-subscription', (req,res) => {
+router.get('/add-subscription', withAuth, (req,res) => {
     res.render('add-subscription', { loggedIn: req.session.loggedIn })
 })
 
-router.get('/edit-subscription/:id', (req,res) => {
+router.get('/edit-subscription/:id', withAuth, (req,res) => {
     User_Subscription.findOne({
         where: {
             id: req.params.id
@@ -52,12 +55,12 @@ router.get('/edit-subscription/:id', (req,res) => {
 })
 
 // render create a new service view
-router.get('/create-service', (req,res) => {
+router.get('/create-service', withAuth, (req,res) => {
     res.render('create-service', {loggedIn: req.session.loggedIn})
 })
 
 // render edit a service view
-router.get('/edit-service/:id', (req,res) => {
+router.get('/edit-service/:id', withAuth,  (req,res) => {
     Service.findOne({
         where: {
             id: req.params.id
