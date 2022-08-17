@@ -19,10 +19,16 @@ Service.belongsToMany(User, {
     foreignKey: 'service_id'
 })
 
-// User has many services
+// User belongs to many services
 User.belongsToMany(Service, {
     through: User_Subscription,
     foreignKey: 'user_id'
+})
+
+// Service belongs t0 many Users
+Service.belongsToMany(User, {
+    through: User_Subscription,
+    foreignKey: 'service_id'
 })
 
 User_Subscription.belongsTo(Service, {
@@ -33,6 +39,4 @@ User_Subscription.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-
-
-module.exports = { Service, Show, User, User_Subscription }
+module.exports = { Service, Show, User, User_Subscription };

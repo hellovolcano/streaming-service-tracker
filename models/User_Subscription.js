@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class User_Subscription extends Model {}
+class User_Subscription extends Model { }
 
 User_Subscription.init(
     {
@@ -21,7 +21,7 @@ User_Subscription.init(
         service_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'service',
+                model: 'Service',
                 key: 'id'
             }
         },
@@ -29,9 +29,9 @@ User_Subscription.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        auto_renewal_date: {
+         auto_renewal_date: {
             type: DataTypes.DATEONLY,
-            allowNull: true 
+            allowNull: true
         }
     },
     {
@@ -39,7 +39,7 @@ User_Subscription.init(
         freezeTableName: true,
         timestamps: false,
         underscored: true,
-        modelName: 'user_subscription'
+        modelName: 'User_Subscription'
     }
 )
 

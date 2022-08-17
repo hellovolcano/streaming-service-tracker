@@ -4,9 +4,9 @@
             <h2>
                 Your Subscriptions
             </h2>
-            
+
         </div>
-        
+
 
         <div class="second-Dash-div">
             <ul>
@@ -16,17 +16,17 @@
                         <div>
                             <div>
                                 <h4>
-                                    {{subscription.service.name}}
+                                    {{subscription.Service.name}}
                                 </h4>
-                                
+
                             </div>
                             <div class="service-info">
                                 <div>
-                                Cost: ${{subscription.service.cost}}
-                            </div>
-                            <div>
-                                Renews on: {{format_date subscription.auto_renewal_date}}
-                            </div>
+                                    Cost: {{subscription.Service.cost}}
+                                </div>
+                                <div>
+                                    Renews on: {{format_date subscription.auto_renewal_date}}
+                                </div>
                             </div>
                         </div>
                         <div>
@@ -50,15 +50,15 @@
     <div class="right-div col-5-12">
         <h2>Summary</h2>
         <div>
-            Summary of monthly costs and # of active subscriptions will go here 
+            Summary of monthly costs and # of active subscriptions will go here
             <br>
-            monthly costs:
+            monthly costs: ${{summary.monthlyCost}}
             <br>
-            # of active subscriptions:
+            # of active subscriptions: {{summary.activeSubs}}
             <br>
 
         </div>
-    </div>    
+    </div>
 </div>
 
 <script src="/javascript/dashboard.js"></script>
