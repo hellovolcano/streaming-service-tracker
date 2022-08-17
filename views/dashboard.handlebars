@@ -1,9 +1,9 @@
 <div>
     <div class="col-7-12 services">
         <div class="services-header">
-            <h3>
+            <h2>
                 Streaming Services
-            </h3>
+            </h2>
             <span class="add-service">
                 <a href="/services">
                     <i class="bi bi-plus-circle-fill"></i> add a new subscription
@@ -13,7 +13,7 @@
         </div>
         
 
-        <div>
+        <div class="second-Dash-div">
             <ul>
                 {{#each services as |subscription|}}
                 <li>
@@ -33,12 +33,10 @@
                                 Renews on: {{subscription.auto_renewal_date}}
                             </div>
                             </div>
-                            
                         </div>
                         <div>
-                            <a href="/dashboard/edit-subscription/{{subscription.id}}">
-                                <i class="bi bi-pencil-fill"></i>
-                                edit subscription
+                            <a href="/dashboard/edit-service/{{subscription.service_id}}">
+                                <i class="bi bi-pencil-fill"></i> edit subscription
                             </a>
                         </div>
                     </div>
@@ -47,10 +45,13 @@
             </ul>
         </div>
     </div>
-    <div class="col-5-12">
+    <div class="right-div col-5-12">
         <h3>Summary</h3>
         <div>
             Summary of monthly costs and # of active subscriptions will go here
         </div>
     </div>    
 </div>
+
+{{!--  this should be part of the navigation defined in main.handlebars. adding it here for testing purposes --}}
+<button id="logout">LOGOUT</button>
