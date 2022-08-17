@@ -29,15 +29,7 @@ User_Subscription.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        /**
-         * KATE:
-         * Subscription table should have subscription start date not renewal date. 
-         * Once the renewal date is passed, the renewal date would need to be updated. 
-         * This means that we need to either update that value each time they login, 
-         * or have a background service to update the value. 
-         * It makes more sense to have a subscription start date, and calculate the renewal date
-         */
-        start_date: {
+         auto_renewal_date: {
             type: DataTypes.DATEONLY,
             allowNull: true
         }

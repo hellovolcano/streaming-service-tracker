@@ -34,4 +34,12 @@ Service.belongsToMany(User, {
     foreignKey: 'service_id'
 })
 
+User_Subscription.belongsTo(Service, {
+    foreignKey: 'service_id'
+})
+
+User_Subscription.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+
 module.exports = { Service, Show, User, User_Subscription };
