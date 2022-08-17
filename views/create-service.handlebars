@@ -1,4 +1,4 @@
-<form class="edit-service">
+<form class="edit-service" id="add-service-form">
     <h2>
         Add Service
     </h2>
@@ -21,22 +21,6 @@
             <option value="yearly">Yearly</option>
         </select>
     </div>
-
-    {{!-- 
-    Commenting this out for now since I moved this info the subscription table
-
-    <div>
-        <label for="service-renewal-date">Auto Renewal Date</label>
-        <input type="text" id="service-renewal-date" />
-    </div>
-    <div>
-        <p>Is this service active?</p>
-        <label for="active">Yes</label>
-        <input type="radio" id="active" name="is-service-active" value="true" />
-        <label for="inactive">No</label>
-        <input type="radio" id="inactive" name="is-service-active" value="false" />
-
-    </div> --}}
     <div>
         <button type="submit"id="create-service">Submit</button>
     </div>

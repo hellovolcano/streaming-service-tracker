@@ -35,4 +35,4 @@ const newServiceHandler = async (event) => {
     }
 }
 
-document.querySelector(".new-service").addEventListener('submit', newServiceHandler)
+document.querySelector("#add-service-form").addEventListener('submit', newServiceHandler)

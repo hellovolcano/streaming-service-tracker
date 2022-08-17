@@ -75,4 +75,4 @@ async function addSubscriptionFormHandler(event) {
 
 // TODO: Get this to run each time the dropdown list is changed, not just the first time
 document.querySelector('#is_active').addEventListener('change', toggleRenewalDate)
-document.querySelector('.add-subscription').addEventListener('submit', addSubscriptionFormHandler)
+document.querySelector('#add-subscription-form').addEventListener('submit', addSubscriptionFormHandler)
