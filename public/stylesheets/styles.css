@@ -38,8 +38,6 @@ a:hover {
     text-decoration: underline;
 }
 
-
-
 .main-layout{
     background-color: var(--primary);
     color: var(--header);
@@ -81,9 +79,6 @@ a:hover {
     padding-left: 10px;
 }
 
-
-
-/* TODO: update once we have a more defined global style */
 .single-service {
     display: flex;
     justify-content: space-between;
@@ -138,6 +133,16 @@ a:hover {
 .right{
     margin: 10px 0px 0px 40px;
 }
+
+.active-subscription {
+    background-color: var(--active);
+    color: var(--header);
+}
+
+.inactive-subscription {
+    background-color: lightgrey;
+}
+
 /* SERVICES styles */
 
 /* don't delete this one */

@@ -12,7 +12,7 @@
             <ul>
                 {{#each services as |subscription|}}
                 <li>
-                    <div class="single-service">
+                    <div class="single-service" data-active="{{subscription.is_active}}">
                         <div>
                             <div>
                                 <h4>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="/dashboard/edit-service/{{subscription.service_id}}">
+                            <a href="/dashboard/edit-subscription/{{subscription.id}}">
                                 <i class="bi bi-pencil-fill"></i> edit subscription
                             </a>
                         </div>
@@ -61,5 +61,4 @@
     </div>    
 </div>
 
-{{!--  this should be part of the navigation defined in main.handlebars. adding it here for testing purposes --}}
-{{!-- <button id="logout">LOGOUT</button> --}}
+<script src="/javascript/dashboard.js"></script>

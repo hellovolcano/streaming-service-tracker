@@ -54,6 +54,7 @@ router.put('/:id', (req, res) => {
         }
 
         res.json(dbSubData)
+        res.redirect('/dashboard')
     })
     .catch(err => {
         console.log(err)
