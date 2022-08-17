@@ -59,6 +59,17 @@
 
         </div>
     </div>
+    <div class="right-div col-5-12">
+        <h2>Upcoming Shows</h2>
+        <div>
+
+            <ul>
+                {{#each tvShows as |tvShow|}}
+                <li data-active="{{tvShow.isSubscribed}}">{{tvShow.premiereDate}} {{tvShow.name}}</li>
+                {{/each}}
+            </ul>
+        </div> 
+    </div>
 </div>
 
 <script src="/javascript/dashboard.js"></script>

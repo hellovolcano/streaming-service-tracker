@@ -3,11 +3,6 @@ const sequelize = require('../config/connection')
 
 class Service extends Model {}
 
-// creating variables to store the monthly vs. yearly in case we want to change 
-// what we actually need (could also be an integer 1 vs 12)
-const monthly = 'monthly'
-const yearly = 'yearly'
-
 Service.init(
     {
         id: {

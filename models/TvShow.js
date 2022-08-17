@@ -1,9 +1,9 @@
 const {Model,DataTypes}=require('sequelize');
 const sequelize=require('../config/connection');
 
-class Show extends Model{}
+class TvShow extends Model{}
 
-Show.init(
+TvShow.init(
     {
         id:{
             type:DataTypes.INTEGER,
@@ -32,8 +32,8 @@ Show.init(
      sequelize,
      freezeTableName:true,
      underscored:true,
-     modelName:'Show',   
+     modelName:'TvShow',   
     }
 );
 
-module.exports=Show;
+module.exports=TvShow;

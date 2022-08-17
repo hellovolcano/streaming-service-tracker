@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Service, User, User_Subscription } = require('../models');
+const { Op } = require('sequelize');
+// const { moment } = require('moment');
+const { Service, User_Subscription, TvShow } = require('../models');
 const withAuth = require('../utils/auth')
+const moment = require('moment')
 
 // render the user dashboard
 router.get('/', withAuth, (req, res) => {
@@ -19,15 +21,16 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'user_id', 'service_id', 'is_active', 'auto_renewal_date'],
         include: {
             model: Service,
-            attributes: ['name', 'cost', 'cost_basis']
+            attributes: ['id', 'name', 'cost', 'cost_basis']
         }
     })
         .then(dbSubData => {
             const services = dbSubData.map(service => service.get({ plain: true }))
             const summaryData = {
                 monthlyCost: 0,
-                activeSubs: 0
+                activeSubs: 0,
             };
+            const activeServiceIds = [];
             services.reduce((accumulator, current) => {
                 if (current.is_active) {
                     if (current.Service.cost_basis === 'yearly') {
@@ -36,14 +39,29 @@ router.get('/', withAuth, (req, res) => {
                     } else {
                         accumulator.monthlyCost += Math.round(parseFloat(current.Service.cost));
                     }
+                    activeServiceIds.push(current.Service.id)
                     accumulator.activeSubs++;
                 }
                 return accumulator;
             }, summaryData);
-            res.render('dashboard', {
-                services,
-                loggedIn: req.session.loggedIn,
-                summary: summaryData
+            TvShow.findAll({
+                where: {
+                    // use the ID from the session after testing (req.session.user_id)
+                    premiereDate: {
+                        [Op.gte]: moment()
+                    }
+                }
+            }).then((results) => {
+                const tvShows = results.map(results => results.get({ plain: true }));
+                tvShows.forEach((tvShow)=>{
+                    tvShow.isSubscribed = activeServiceIds.indexOf(tvShow.service_id) >= 0;
+                });
+                res.render('dashboard', {
+                    services,
+                    tvShows: tvShows,
+                    loggedIn: req.session.loggedIn,
+                    summary: summaryData
+                })
             })
         })
         .catch(err => {

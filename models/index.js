@@ -1,15 +1,15 @@
 const Service = require('./Service')
-const Show = require('./Show')
+const TvShow = require('./TvShow')
 const User = require('./user');
 const User_Subscription = require('./User_Subscription')
 
 // Service has many shows
-Service.hasMany(Show, {
+Service.hasMany(TvShow, {
     foreignKey: 'service_id'
 })
 
 // Service has many shows
-Show.hasOne(Service,{
+TvShow.hasOne(Service,{
     foreignKey:'service_id'
 })
 
@@ -39,4 +39,4 @@ User_Subscription.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-module.exports = { Service, Show, User, User_Subscription };
+module.exports = { Service, TvShow: TvShow, User, User_Subscription };

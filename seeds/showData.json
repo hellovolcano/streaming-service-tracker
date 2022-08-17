@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"Cobra Kai (Season 5)",
+        "premiereDate":"2022-09-15 00:00:00.000 Z",
+        "service_id":1
+    },
+    {
+        "id":2,
+        "name":"Prey",
+        "premiereDate":"2022-10-11 00:00:00.000 Z",
+        "service_id":2
+    },
+    {
+        "id":3,
+        "name":"Clone Wars",
+        "premiereDate":"2022-11-21 00:00:00.000 Z",
+        "service_id":3
+    }
+]

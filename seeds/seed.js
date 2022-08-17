@@ -1,9 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Service, User_Subscription } = require('../models');
+const { User, Service, User_Subscription, TvShow } = require('../models');
 
 const userSeedData = require('./userSeedData.json');
 const serviceData = require('./serviceData.json');
 const subscriptionData = require('./subscriptionData.json');
+const showData = require('./showData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -18,6 +19,10 @@ const seedDatabase = async () => {
     returning: true,
   });
   await User_Subscription.bulkCreate(subscriptionData, {
+    individualHooks: true,
+    returning: true,
+  });
+  await TvShow.bulkCreate(showData, {
     individualHooks: true,
     returning: true,
   });

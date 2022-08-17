@@ -1,11 +1,11 @@
 const router=require('express').Router();
 const sequelize = require('../../config/connection')
-const {Show} = require('../../models');
+const {TvShow} = require('../../models');
 
 
 // Find all shows 
 router.get('/',(req,res)=>{
-  Show.findAll()
+  TvShow.findAll()
   .then(dbShowData=>res.json(dbShowData))
   .catch(err=>{
     console.log(err);
@@ -16,7 +16,7 @@ router.get('/',(req,res)=>{
 
 // Find one show
 router.get('/:id',(req,res)=>{
-  Show.findOne({
+  TvShow.findOne({
     where:{
       id:req.params.id
     },
@@ -38,7 +38,7 @@ router.get('/:id',(req,res)=>{
 
 // creates a new show
 router.post('/',(req,res)=>{
-  Show.create({
+  TvShow.create({
     id: req.body.id,
     name: req.body.name,
     premiereDate:req.body.premiereDate,
@@ -55,7 +55,7 @@ router.post('/',(req,res)=>{
 
 // Deletes a show
 router.delete('/:id',(req,res)=>{
-    Show.destroy({
+    TvShow.destroy({
         where:{
             id:req.params.id
         }
@@ -74,7 +74,7 @@ router.delete('/:id',(req,res)=>{
 
 // updates a show
 router.put('/:id',(req,res)=>{
-    Show.update(
+    TvShow.update(
       {
         id:req.body.id,
         name:req.body.name,
