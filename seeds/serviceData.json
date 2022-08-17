@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Netflix",
+        "cost": 9.99,
+        "cost_basis": "monthly"
+    },
+    {
+        "name": "Hulu",
+        "cost": 9.99,
+        "cost_basis": "monthly"
+    },
+    {
+        "name": "Disney+",
+        "cost": 7.99,
+        "cost_basis": "monthly"
+    },
+    {
+        "name": "HBO Max",
+        "cost": 14.99,
+        "cost_basis": "monthly"
+    },
+    {
+        "name": "Amazon Prime",
+        "cost": 139,
+        "cost_basis": "monthly"
+    }
+]

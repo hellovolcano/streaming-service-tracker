@@ -23,7 +23,7 @@ Show.init(
             type:DataTypes.INTEGER,
             allowNull:false,
             references:{
-                model: 'service',
+                model: 'Service',
                 key:'id',
             },
         },

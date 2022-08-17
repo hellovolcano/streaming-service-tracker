@@ -26,7 +26,7 @@ Service.init(
             allowNull: false
         },
         cost_basis: {
-            type: DataTypes.ENUM(monthly, yearly),
+            type: DataTypes.ENUM("monthly", "yearly"),
             allowNull: false
         }
     },
@@ -34,7 +34,7 @@ Service.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'service'
+        modelName: 'Service'
     }
 )
 

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class User_Subscription extends Model {}
+class User_Subscription extends Model { }
 
 User_Subscription.init(
     {
@@ -21,7 +21,7 @@ User_Subscription.init(
         service_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'service',
+                model: 'Service',
                 key: 'id'
             }
         },
@@ -29,9 +29,17 @@ User_Subscription.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        auto_renewal_date: {
+        /**
+         * KATE:
+         * Subscription table should have subscription start date not renewal date. 
+         * Once the renewal date is passed, the renewal date would need to be updated. 
+         * This means that we need to either update that value each time they login, 
+         * or have a background service to update the value. 
+         * It makes more sense to have a subscription start date, and calculate the renewal date
+         */
+        start_date: {
             type: DataTypes.DATEONLY,
-            allowNull: true 
+            allowNull: true
         }
     },
     {
@@ -39,7 +47,7 @@ User_Subscription.init(
         freezeTableName: true,
         timestamps: false,
         underscored: true,
-        modelName: 'user_subscription'
+        modelName: 'User_Subscription'
     }
 )
 
