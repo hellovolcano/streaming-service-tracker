@@ -19,9 +19,6 @@ Service.belongsToMany(User, {
     foreignKey: 'service_id'
 })
 
-// KATE: Removed foreign key based on documentation found here: 
-// https://sequelize.org/api/v6/class/src/associations/belongs-to-many.js~belongstomany
-
 // User belongs to many services
 User.belongsToMany(Service, {
     through: User_Subscription,
