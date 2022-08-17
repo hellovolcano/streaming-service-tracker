@@ -1,35 +1,41 @@
 [
     {
-        "firstName": "Chandler",
-        "lastName": "Bing",
-        "email": "chandler@friends.com",
-        "password": "friendly1"
-    },
-    {
-        "firstName": "Monica",
-        "lastName": "Geller",
-        "email": "monica@friends.com",
-        "password": "friendly1"
-    },
-    {
-        "firstName": "Rachel",
-        "lastName": "Green",
-        "email": "rachel@friends.com",
-        "password": "friendly1"
-    },
-    {
+        "id":1,
         "firstName": "Joey",
         "lastName": "Tribbiani",
         "email": "joey@friends.com",
         "password": "friendly1"
     },
     {
+        "id":2,
+        "firstName": "Chandler",
+        "lastName": "Bing",
+        "email": "chandler@friends.com",
+        "password": "friendly1"
+    },
+    {
+        "id":3,
+        "firstName": "Monica",
+        "lastName": "Geller",
+        "email": "monica@friends.com",
+        "password": "friendly1"
+    },
+    {
+        "id":4,
+        "firstName": "Rachel",
+        "lastName": "Green",
+        "email": "rachel@friends.com",
+        "password": "friendly1"
+    },
+    {
+        "id":5,
         "firstName": "Phoebe",
         "lastName": "Buffay",
         "email": "phoebe@friends.com",
         "password": "friendly1"
     },
     {
+        "id":6,
         "firstName": "Ross",
         "lastName": "Geller",
         "email": "ross@friends.com",

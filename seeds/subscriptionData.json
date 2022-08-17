@@ -16,5 +16,11 @@
         "service_id": 3,
         "is_active": true,
         "auto_renewal_date": "2022-08-15 00:00:00.000 Z"
+    },
+    {
+        "user_id": 1,
+        "service_id": 5,
+        "is_active": true,
+        "auto_renewal_date": "2022-08-15 00:00:00.000 Z"
     }
 ]
