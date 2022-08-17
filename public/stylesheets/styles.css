@@ -1,3 +1,12 @@
+/* color palette variables */
+:root {
+    --primary: #0a2f35;
+    --active: #12492f;
+    --body-links: #f7a325;
+    --header: #ffca7a;
+    --highlight: #f56038;
+}
+
 /* General styles */
 
 * {
@@ -11,20 +20,29 @@ html, body {
 
 body {
     font-family: 'Albert Sans', sans-serif;
+    color: var(--primary)
 }
-
-/* FONTS */
-/* Global font */
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,900;1,100&display=swap');
 
 /* DASHBOARD STYLES */
-a{
+a {
     text-decoration: none;
+    color: var(--body-links);
 }
 
+a:visited {
+    color: var(--body-links);
+}
+
+a:hover {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+
+
+
 .main-layout{
-    background-color: black;
-    color: white;
+    background-color: var(--primary);
+    color: var(--header);
     padding: 25px;
     overflow: hidden;
     display: flex;
@@ -35,6 +53,7 @@ a{
 .main-layout h1{
     display: flex;
     justify-content: flex-start;
+    color: var(--header);
 }
 
 /* .main-layout h2{
@@ -44,13 +63,11 @@ a{
 
 
 .services-header{
-    outline: solid black;
     padding-bottom: 25px;
     padding-top: 5px;
 }
 
 .second-Dash-div{
-    outline: solid black;
     padding-bottom: 25px;
     padding-top: 5px;
     margin-top: 5px;
@@ -58,7 +75,6 @@ a{
 }
 
 .right-div{
-    outline: solid black;
     padding-bottom: 25px;
     padding-top: 5px;
     margin-top: 25px;
@@ -73,7 +89,6 @@ a{
     justify-content: space-between;
     background-color: white;
     border: 1px solid black;
-    border-radius: 0px;
     padding: 5px;
     margin-top: 5px;
     margin-right: 40px;
@@ -193,17 +208,31 @@ input [type=text], select{
     border-radius: 4px;
 }
 
-/* Nav styles that can be deleted */
+/* HEADER STYLES */
+header h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 72px;
+    margin-right: 0;
+    color: var(--primary)
+}
+
+
+/* NAV STYLES*/
 .no-styles {
     background: none;
-    color: white;
+    color: var(--header);
     border: none;
     cursor: pointer;
-    padding: 0;
-    font-size: 100%;
-    margin-left: 10px;
+    padding: 5px;
+    font-size: 24px;
+    margin-left: 0px;
     text-decoration: none;
-    display:inline;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.no-styles:hover{
+    background-color: var(--header);
+    color: var(--primary)
 }
 
 nav ul {
@@ -218,19 +247,41 @@ nav ul li {
 
 nav {
 
-    padding: 20px;
+    padding: 40px;
+    margin-left: 0;
 }
 
 nav ul li a{
-    color: white;
+    color: var(--header);
+    text-decoration: none;
+    font-size: 24px;
+    padding: 5px;
+}
+
+nav ul li a:visited {
+    color: var(--header);
+}
+
+nav ul li a:hover {
+    background-color: var(--header);
+    color: var(--primary);
     text-decoration: none;
 }
 /* LANDING PAGE STYLES */
-/* Don't change */
+
+.landing-content h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 90px;
+}
+
+.landing-text {
+    margin-left: 15px;
+}
+
 .landing-page-left {
     background-image: url("/images/loewe-unsplash-med.jpg");
     background-size: cover;
-    background-color: seagreen;
+    background-color: var(--header);
     height: 100%;
 }
 
@@ -256,9 +307,36 @@ nav ul li a{
     max-width: 100%;
 }
 
-/* don't chage */
+/* MEDIA QUERIES */
+/* Make the header fonts a bit smaller at this size */
+@media screen and (max-width: 1036px) {
+    nav {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 60px;
+    }
+}
+
+/* Switch to column view in the header at this point so we don't have text breaking to a new line */
+@media screen and (max-width: 936px) {
+    .main-layout {
+        flex-direction: column;
+        justify-content:space-around;
+    }
+    header h1 {
+        margin: 0 auto;
+    }
+
+    nav {
+        margin: 0 auto;
+    }
+}
+
 @media screen and (max-width: 850px) {
     .landing-page-left {
         display: none;
     }
+
 }
