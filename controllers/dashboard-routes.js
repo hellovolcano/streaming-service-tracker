@@ -23,7 +23,6 @@ router.get('/', withAuth, (req,res) => {
         }
     })
         .then(dbSubData => {
-            console.log(dbSubData);
             const services = dbSubData.map(service => service.get({ plain: true }))
             const summaryData = {
                 monthlyCost: 0,
@@ -35,14 +34,12 @@ router.get('/', withAuth, (req,res) => {
                         accumulator.monthlyCost += (current.Service.cost / 12);
 
                     } else {
-                        console.log(typeof current.Service.cost);
                         accumulator.monthlyCost += parseFloat(current.Service.cost);
                     }
                     accumulator.activeSubs++;
                 }
                 return accumulator;
             }, summaryData);
-            console.log(summaryData)
             res.render('dashboard', {
                 services,
                 loggedIn: req.session.loggedIn,
