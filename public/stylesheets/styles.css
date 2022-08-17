@@ -299,6 +299,25 @@ nav ul li a:hover {
     margin-left: 20px;
 }
 
+.landing-content hr {
+    margin-bottom: 25px;
+}
+
+/* Landing page call-to-action styles */
+.cta-link {
+    font-family: 'Sacramento', cursive;
+    font-size: 48px;
+    margin-left: 24px;
+}
+
+.cta-link a:hover {
+    text-decoration: none;
+}
+
+.cta-link i {
+    font-size: 40px;
+}
+
 
 /* Modifications to Simple Grid styles */
 .grid {
