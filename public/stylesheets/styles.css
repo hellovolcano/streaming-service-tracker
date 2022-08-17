@@ -13,6 +13,15 @@
     margin: 0;
 }
 
+/* UTILITY styles */
+.tm-15px {
+    margin-top: 15px;
+}
+
+.toggle-visibility {
+    display: none;
+}
+
 /* Required for the landing page layout */
 html, body {
     height: 100%;
@@ -145,10 +154,6 @@ a:hover {
 
 /* SERVICES styles */
 
-/* don't delete this one */
-.toggle-visibility {
-    display: none;
-}
 
 /* FAQ */
 .FAQ{
