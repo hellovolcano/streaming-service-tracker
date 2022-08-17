@@ -26,7 +26,7 @@ User_Subscription.init(
             }
         },
         is_active: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
          auto_renewal_date: {

@@ -22,7 +22,7 @@ Service.init(
             // allowing duplicate names since we're not doing a separate subscription model table
         },
         cost: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(5,2),
             allowNull: false
         },
         cost_basis: {
