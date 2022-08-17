@@ -1,13 +1,19 @@
+<section class="right">
+    <a href="/dashboard/create-service">+ add a streaming service</a>
+</section>
 <section>
+    <h2>Streaming Services</h2>
+    <p>You can browse the streaming services below and pick one to add to your subscription list, or add one if it's missing!</p>
     {{!-- Display info about each streaming service --}}
-    <ol>
+    <ol class="services">
         {{#each services as |service| }}
-        <li>
+        <li class="single-service">
             <div>
-                Name: {{service.name}}
+                <span class="service-title">{{service.name}}</span> | Cost: {{service.cost}}
             </div>
             <div>
-                Cost: {{service.cost}}
+                <a href="/dashboard/add-subscription?{{service.id}}">add subscription</a> | 
+                <a href="/dashboard/edit-service/{{service.id}}">edit</a>
             </div>
         {{/each}}
     </ol>

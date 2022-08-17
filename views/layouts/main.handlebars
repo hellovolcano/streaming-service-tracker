@@ -11,15 +11,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
-<header>
+<header class="main-layout">
     <h1>
         Streaming Service Tracker
     </h1>
+    {{!-- this can all be deleted.. I just needed navigation to test the work flow --}}
+    <nav>
+        <ul>
+            <li><a href="/dashboard">dashboard</a></li>
+            <li><a href="/services">services</a></li>
+            <li><a href="/faq">faq</a></li>
+            {{#if loggedIn}}
+            <li><button id="logout" class="no-styles">logout</button></li>
+            {{/if}}
+        </ul>
+    </nav>
 </header>
 <body>
     {{{ body }}}
-
+    
+    {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
-
+    {{/if}}
 </body>
 </html>
