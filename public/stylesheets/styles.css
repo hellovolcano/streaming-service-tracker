@@ -82,30 +82,35 @@ a:hover {
 }
 
 .your-stats {
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 48px;
+    padding: 20px;
     background-color: var(--primary);
     border: 1px solid var(--header);
     color: var(--header);
     text-align: right;
     border-radius: 5px;
-    float: right;
+    margin-right: 40px;
+    /* float: right; */
 }
 
-.your-stats h2 {
-    margin-bottom: 10px;
+.stats-header {
+    display: none;
 }
 
 
-.services-header{
-    padding-bottom: 25px;
+.services-header {
+    padding-bottom: 10px;
     padding-top: 5px;
+}
+
+.shows-header {
+    padding-bottom: 15px;
 }
 
 .second-Dash-div{
     padding-bottom: 25px;
     padding-top: 5px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     margin-left: 40px;
 }
 
@@ -116,7 +121,7 @@ a:hover {
     padding-left: 10px;
 }
 
-.single-service {
+.single-service, .single-show {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -126,6 +131,10 @@ a:hover {
     margin-top: 5px;
     margin-right: 40px;
     margin-bottom: 15px;
+}
+
+.single-show span {
+    padding: 5px;
 }
 
 .single-service a {
@@ -144,7 +153,7 @@ a:hover {
     margin-top: 25px;
 }
 
-.services ul {
+.services ul, .shows ul {
     list-style-type: none;
     margin: 0;
     padding-left: 0px;
@@ -198,8 +207,29 @@ a:hover {
 
 /* FAQ */
 .FAQ{
-    margin: 10px 0px 10px 0px;
+    margin: 15px 0;
 }
+
+.FAQ h4 {
+    margin-bottom: 5px;
+    font-family: 'Sacramento', cursive;
+    font-size: 36px;
+    margin-top: 25px;
+}
+
+.FAQ p {
+    margin: 10px 0;
+}
+
+
+.FAQ hr {
+    width: 25%;
+    /* margin: 0 auto; */
+    border-style:dotted; 
+
+
+}
+
 
 /* EDIT services */
 input [type=text], select{
@@ -466,5 +496,25 @@ nav ul li a:hover {
     }
     .your-stats {
         float: none;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .your-stats {
+        margin-left: 40px;
+        margin-top: 15px;
+    }
+
+    .shows {
+        margin-left: 40px;
+    }
+
+    .stats-header {
+        display: inline;
+    }
+
+    .stats-header, .shows-header {
+        margin-left: 40px;
     }
 }
