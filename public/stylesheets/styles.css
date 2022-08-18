@@ -35,15 +35,15 @@ body {
 /* DASHBOARD STYLES */
 a {
     text-decoration: none;
-    color: var(--body-links);
+    color: var(--highlight);
 }
 
 a:visited {
-    color: var(--body-links);
+    color: var(--highlight);
 }
 
 a:hover {
-    color: var(--highlight);
+    color: var(--active);
     text-decoration: underline;
 }
 
@@ -67,6 +67,34 @@ a:hover {
     display: flex;
     justify-content: flex-end;
 } */
+
+.monthly-cost, .number-subs {
+    font-family: 'Sacramento', cursive;
+    font-size: 55px;
+}
+
+.monthly-cost {
+    display: block;
+}
+
+.number-subs {
+    font-size: 24px;
+}
+
+.your-stats {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--primary);
+    border: 1px solid var(--header);
+    color: var(--header);
+    text-align: right;
+    border-radius: 5px;
+    float: right;
+}
+
+.your-stats h2 {
+    margin-bottom: 10px;
+}
 
 
 .services-header{
@@ -92,11 +120,24 @@ a:hover {
     display: flex;
     justify-content: space-between;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
     padding: 5px;
     margin-top: 5px;
     margin-right: 40px;
     margin-bottom: 15px;
+}
+
+.single-service a {
+    color: var(--header);
+}
+
+.single-service a:hover {
+    color: var(--highlight);
+}
+
+.single-service a:visited {
+    color: var(--header)
 }
 
 .services {
@@ -201,7 +242,7 @@ input [type=text], select{
 }
 
 #delete-service {
-    background-color: #ff6961;
+    background-color: var(--highlight);
     color: white;
     padding: 10px;
     margin: 10px;
@@ -209,9 +250,10 @@ input [type=text], select{
     border-radius: 4px;
 }
 
-#create-service {
-    background-color: #4CAF50;
-    color: white;
+
+.button-submit {
+    background-color:var(--primary); 
+    color: white; 
     padding: 10px;
     margin: 10px;
     border: none;
@@ -367,5 +409,7 @@ nav ul li a:hover {
     .landing-page-left {
         display: none;
     }
-
+    .your-stats {
+        float: none;
+    }
 }

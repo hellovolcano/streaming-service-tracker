@@ -48,20 +48,19 @@
         </div>
     </div>
     <div class="right-div col-5-12">
-        <h2>Summary</h2>
-        <div>
-            Summary of monthly costs and # of active subscriptions will go here
-            <br>
-            monthly costs: ${{summary.monthlyCost}}
-            <br>
-            # of active subscriptions: {{summary.activeSubs}}
-            <br>
+        
+        <div class="right-col your-stats">
+            <h2>Your Stats</h2>
+ 
+            <p>You're spending:
+            <span class="monthly-cost">${{summary.monthlyCost}}/month</span> 
+            on <span class="number-subs">{{summary.activeSubs}}</span> streaming services</p>
 
         </div>
     </div>
     <div class="right-div col-5-12">
-        <h2>Upcoming Shows</h2>
-        <div>
+        <h2>Your Upcoming Shows</h2>
+        <div class="right-col your-shows">
 
             <ul>
                 {{#each tvShows as |tvShow|}}
