@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Op, DATEONLY } = require('sequelize');
+const { Op } = require('sequelize');
 // const { moment } = require('moment');
 const { Service, User_Subscription, TvShow } = require('../models');
 const withAuth = require('../utils/auth')
