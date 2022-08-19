@@ -49,6 +49,9 @@ router.get('/', withAuth, (req, res) => {
                     // use the ID from the session after testing (req.session.user_id)
                     premiereDate: {
                         [Op.gte]: moment()
+                    },
+                    service_id: {
+                        [Op.in]: activeServiceIds
                     }
                 },
                 order: [
