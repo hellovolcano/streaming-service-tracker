@@ -35,6 +35,12 @@ User.belongsToMany(Service, {
     foreignKey: 'user_id'
 })
 
+// Service belongs t0 many Users
+Service.belongsToMany(User, {
+    through: User_Subscription,
+    foreignKey: 'service_id'
+})
+
 User_Subscription.belongsTo(Service, {
     foreignKey: 'service_id'
 })
