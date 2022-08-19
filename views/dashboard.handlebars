@@ -59,12 +59,14 @@
         </div>
     </div>
     <div class="right-div col-5-12">
-        <h2 class="shows-header">Your Upcoming Shows</h2>
+            <h2 class="shows-header">Your Upcoming Shows</h2> &nbsp;&nbsp;
+            <a href="/dashboard/create-show"><i class="bi bi-plus-circle-fill"></i></a>
+        
         <div class="right-col shows">
 
             <ul>
                 {{#each tvShows as |tvShow|}}
-                <li data-active="{{tvShow.isSubscribed}}" class="single-show"><span class="show-name">{{tvShow.name}}</span> <span class="show-date">{{format_date tvShow.premiereDate}}</span></li>
+                <li data-active="{{tvShow.isSubscribed}}" class="single-show"><span class="show-name">{{tvShow.name}}</span> <span class="show-date">{{format_date tvShow.premiereDate}} <a href="/dashboard/edit-show/{{tvShow.id}}"><i class="bi bi-pencil-fill"></i></a></span></li>
                 {{/each}}
             </ul>
         </div> 

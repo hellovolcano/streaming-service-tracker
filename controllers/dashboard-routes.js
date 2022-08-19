@@ -16,7 +16,7 @@ router.get('/', withAuth, (req, res) => {
             user_id: req.session.user_id
         },
         order: [
-            ['auto_renewal_date', 'DESC']
+            ['auto_renewal_date', 'ASC']
         ],
         attributes: ['id', 'user_id', 'service_id', 'is_active', 'auto_renewal_date'],
         include: {
@@ -50,7 +50,10 @@ router.get('/', withAuth, (req, res) => {
                     premiereDate: {
                         [Op.gte]: moment()
                     }
-                }
+                },
+                order: [
+                    ['premiereDate', 'ASC']
+                ]
             }).then((results) => {
                 const tvShows = results.map(results => results.get({ plain: true }));
                 tvShows.forEach((tvShow)=>{
@@ -113,6 +116,53 @@ router.get('/edit-service/:id', withAuth, (req, res) => {
             // serialize the data before passing to template
             const service = dbServiceData.get({ plain: true })
             res.render('edit-service', { service, loggedIn: req.session.loggedIn })
+        })
+})
+
+// render create a show view
+router.get('/create-show', withAuth, (req, res) => {
+    Service.findAll({
+        attributes: ['id','name']
+    })
+    .then(serviceData => {
+        const services = serviceData.map(service => service.get({ plain: true }))
+        res.render('create-show', { services, loggedIn: req.session.loggedIn })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+    })
+})
+
+
+// render edit a show view
+router.get('/edit-show/:id', withAuth, (req, res) => {
+    TvShow.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbShowData => {
+            if (!dbShowData) {
+                res.status(404).json({ message: 'No post found with that id' })
+                return
+            }
+
+            // serialize the data before passing to template
+            const show = dbShowData.get({ plain: true })
+
+            Service.findAll({
+                attributes: ['id','name']
+            })
+            .then(serviceData => {
+                const services = serviceData.map(service => service.get({ plain: true }))
+                res.render('edit-show', { show, services, loggedIn: req.session.loggedIn })
+            })
+            
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
         })
 })
 
