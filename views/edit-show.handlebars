@@ -1,0 +1,30 @@
+<form class="edit-service" id="edit-show">
+    <h2>
+        Edit Show
+    </h2>
+    <br>
+    <div>
+        <label for="service-name">Show Name</label>
+        <br>
+        <input type="text" id="service-name" value="{{show.name}}"/>
+    </div>
+    <div>
+        <label for="premiere-date">When does the show premiere?</label>
+        <input type="string" id="premiere-date" value="{{show.premiereDate}}" />
+    </div>
+    <div>
+        <label for="services-dropdown">What streaming service is it on?</label>
+        <select id="services-dropdown" class="dropdown">
+            {{#each services as |service|}}
+            <option value="{{service.id}}">{{service.name}}</option>
+            {{/each}}    
+        </select>
+    </div>
+    <div>
+        <button class="button-submit" type="submit" id="edit-show" class="button-submit">Submit</button>
+        <button class="button-delete" id="delete-show-btn">Delete Show</button>
+    </div>
+</form>
+
+<script src="/javascript/edit-show.js"></script>
+<script src="/javascript/delete-show.js"></script>

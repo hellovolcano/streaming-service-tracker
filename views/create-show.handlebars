@@ -1,0 +1,28 @@
+<form class="edit-service" id="add-show-form">
+    <h2>
+        Add Show
+    </h2>
+    <br>
+    <div>
+        <label for="service-name">Show Name</label>
+        <br>
+        <input type="text" id="service-name" />
+    </div>
+    <div>
+        <label for="premiere_date">When does the show premiere?</label>
+        <input type="string" id="premiere_date" placeholder="YYYY-MM-DD" />
+    </div>
+    <div>
+        <label for="services-dropdown">What streaming service is it on?</label>
+        <select id="services-dropdown" class="dropdown">
+            {{#each services as |service|}}
+            <option value="{{service.id}}">{{service.name}}</option>
+            {{/each}}    
+        </select>
+    </div>
+    <div>
+        <button type="submit" id="create-service" class="button-submit">Submit</button>
+    </div>
+</form>
+
+<script src="/javascript/create-show.js"></script>
