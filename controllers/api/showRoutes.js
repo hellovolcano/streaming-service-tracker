@@ -43,6 +43,7 @@ router.post('/',(req,res)=>{
     name: req.body.name,
     premiereDate:req.body.premiereDate,
     service_id:req.body.service_id,
+    user_id: req.session.user_id
   })
   
   .then(dbShowData => res.json(dbShowData))

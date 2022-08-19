@@ -46,7 +46,8 @@ router.get('/', withAuth, (req, res) => {
             }, summaryData);
             TvShow.findAll({
                 where: {
-                    // use the ID from the session after testing (req.session.user_id)
+                    user_id: req.session.user_id,
+
                     premiereDate: {
                         [Op.gte]: moment()
                     }
