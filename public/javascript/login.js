@@ -13,8 +13,7 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json'}
         })
-        console.log(response)
-        debugger;
+
         if (response.ok) {
             document.location.replace('/dashboard')
             return

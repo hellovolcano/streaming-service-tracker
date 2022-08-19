@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Op } = require('sequelize');
+const { Op, DATEONLY } = require('sequelize');
 // const { moment } = require('moment');
 const { Service, User_Subscription, TvShow } = require('../models');
 const withAuth = require('../utils/auth')
@@ -44,13 +44,17 @@ router.get('/', withAuth, (req, res) => {
                 }
                 return accumulator;
             }, summaryData);
+            // TODO: fix intermittent issue with login page not redirecting to /dashboard
             TvShow.findAll({
                 where: {
-                    user_id: req.session.user_id,
-
-                    premiereDate: {
-                        [Op.gte]: moment()
-                    }
+                    [Op.and]: [
+                        {
+                            user_id: req.session.user_id
+                        },
+                        {
+                            premiereDate: { [Op.gte]: moment() }
+                        }
+                    ]
                 },
                 order: [
                     ['premiereDate', 'ASC']
