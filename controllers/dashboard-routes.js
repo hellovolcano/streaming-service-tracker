@@ -49,6 +49,9 @@ router.get('/', withAuth, (req, res) => {
                     // use the ID from the session after testing (req.session.user_id)
                     premiereDate: {
                         [Op.gte]: moment()
+                    },
+                    service_id: {
+                        [Op.in]: services.map((current) => current.Service.id)
                     }
                 },
                 order: [
@@ -56,7 +59,7 @@ router.get('/', withAuth, (req, res) => {
                 ]
             }).then((results) => {
                 const tvShows = results.map(results => results.get({ plain: true }));
-                tvShows.forEach((tvShow)=>{
+                tvShows.forEach((tvShow) => {
                     tvShow.isSubscribed = activeServiceIds.indexOf(tvShow.service_id) >= 0;
                 });
                 res.render('dashboard', {
@@ -122,16 +125,16 @@ router.get('/edit-service/:id', withAuth, (req, res) => {
 // render create a show view
 router.get('/create-show', withAuth, (req, res) => {
     Service.findAll({
-        attributes: ['id','name']
+        attributes: ['id', 'name']
     })
-    .then(serviceData => {
-        const services = serviceData.map(service => service.get({ plain: true }))
-        res.render('create-show', { services, loggedIn: req.session.loggedIn })
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err)
-    })
+        .then(serviceData => {
+            const services = serviceData.map(service => service.get({ plain: true }))
+            res.render('create-show', { services, loggedIn: req.session.loggedIn })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
 })
 
 
@@ -152,13 +155,13 @@ router.get('/edit-show/:id', withAuth, (req, res) => {
             const show = dbShowData.get({ plain: true })
 
             Service.findAll({
-                attributes: ['id','name']
+                attributes: ['id', 'name']
             })
-            .then(serviceData => {
-                const services = serviceData.map(service => service.get({ plain: true }))
-                res.render('edit-show', { show, services, loggedIn: req.session.loggedIn })
-            })
-            
+                .then(serviceData => {
+                    const services = serviceData.map(service => service.get({ plain: true }))
+                    res.render('edit-show', { show, services, loggedIn: req.session.loggedIn })
+                })
+
         })
         .catch(err => {
             console.log(err);
