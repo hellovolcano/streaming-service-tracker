@@ -6,7 +6,7 @@
 
 
 ## Technologies used
-# Simple Grid – Simple, responsive CSS Grid system
+# Simple Grid – Simple, responsive CSS Grid system (https://thisisdallas.github.io/Simple-Grid/)
 # Moment.js - parse and format dates in Javascript
 # Node packages: bcrypt, handlebars, express-session, dotenv, mysql2, sequelize
 # Styling: Bootstrap Icons & Google Fonts
@@ -42,3 +42,5 @@
 # Kate Lam GitHub: Kate-github
 # Luis Garcia GitHub: garcia2697
 # Valerie Gleason GitHub: hellovolcano
+
+Image by [Loewe Technology](https://unsplash.com/photos/BRfpQ4sTcq8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) from [Unsplash](https://unsplash.com/s/photos/television?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
