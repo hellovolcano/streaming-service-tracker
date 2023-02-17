@@ -6,10 +6,10 @@
 
 
 ## Technologies used
-# Simple Grid – Simple, responsive CSS Grid system (https://thisisdallas.github.io/Simple-Grid/)
-# Moment.js - parse and format dates in Javascript
-# Node packages: bcrypt, handlebars, express-session, dotenv, mysql2, sequelize
-# Styling: Bootstrap Icons & Google Fonts
+- Simple Grid – Simple, responsive CSS Grid system (https://thisisdallas.github.io/Simple-Grid/)
+- Moment.js - parse and format dates in Javascript
+- Node packages: bcrypt, handlebars, express-session, dotenv, mysql2, sequelize
+- Styling: Bootstrap Icons & Google Fonts
 
 ## How to use
 1. Go to the following Heroku link https://shielded-thicket-83954.herokuapp.com/
